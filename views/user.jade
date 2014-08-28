@@ -1,0 +1,9 @@
+extends base
+
+block content
+    h1.home #{title}
+    ul.list-group
+        for message in messages
+            li.list-group-item
+                p= message.content
+                p.time= message.time

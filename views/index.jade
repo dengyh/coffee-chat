@@ -1,0 +1,39 @@
+extends base
+
+block content
+    .modal.fade(id='my-modal', tabindex='-1', role='dialog', aria-labelledby='my-modal-title' aria-hidden='false')
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h4.modal-title(id='my-modal-title') Welcome to chat room
+                .modal-body
+                    if visited
+                        h5 Welcome back,
+                            span(id='last-name') #{user.name}
+                        button.btn.btn-primary(id='come-back') Enter
+                    else
+                        form(role='form', id='name-form')
+                            .form-group
+                                label(for='username') Your name
+                                input.form-control(id='username', name='name', type='text', placeholder='Enter name')
+                                p.wrong
+                            button.btn.btn-primary(id='confirm') Confirm
+
+    .chat-box
+
+    .chat-input
+        form(role='form', id='message-form')
+            .row
+                .input-group
+                    input.form-control(type='text', name='content')
+                    if user
+                        input.form-control(type='hidden', name='user_id', value='#{user._id}')
+                        input.form-control(type='hidden', name='username', value='#{user.name}')
+                    else
+                        input.form-control(type='hidden', name='user_id', value='')
+                        input.form-control(type='hidden', name='username', value='')
+                    span.input-group-btn
+                        button.btn.btn-default Input
+
+block script
+    script(src='/javascripts/index.js')

@@ -1,0 +1,90 @@
+body, html, content {
+    width: 100%;
+}
+
+body {
+      padding: 50px;
+      font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+      font-family: "Microsoft YaHei";
+      background-color: rgb(50,50,50);
+}
+
+a {
+    color: #00B7FF;
+    text-decoration: none;
+}
+
+.modal-button {
+    display: none;
+}
+
+.wrong {
+    color: rgb(217,81,79);
+    margin-top: 5px;
+}
+
+#my-modal {
+    margin-top: 10%;
+}
+
+.chat-box {
+    width: 80%;
+    min-height: 450px;
+    margin: 20px auto 40px auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: rgba(255,255,255,1);
+    z-index: -50;
+    display: none;
+}
+
+.chat-input {
+    position: fixed;
+    background-color: rgba(255,255,255,0.5);
+    padding: 20px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: 50;
+    display: none;
+}
+
+.chat-input form {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.chat-input form input {
+    background-color: rgba(255,255,255,0.8);
+}
+
+.chat-box p {
+    font-size: 20px;
+    display: none;
+}
+
+.chat-box .username {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.chat-box .time {
+    font-size: 14px;
+    text-align: right;
+    font-style: italic;
+}
+
+/* user.jade */
+.time {
+    font-size: 14px;
+    text-align: right;
+    font-style: italic;
+}
+
+.home {
+    color: white;
+}
+
+.new-user {
+    text-align: center;
+}

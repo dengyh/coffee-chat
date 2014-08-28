@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+debug = (require 'debug') 'chat'
+app = require '../app'
+
+app.set 'port', process.env.PORT || 3000
+
+server = app.listen app.get 'port', ->
+    debug 'Express server listening on port ' + (do server.address).port
+
+io = (require 'socket.io').listen server
+io.sockets.on 'connection', (socket) ->
+    console.log 'A user connected'
+
+    socket.on 'chat', (content, username, user_id, time) ->
+        console.log 'message: ' + content
+        io.emit 'chat', content, username, user_id, time
+
+    socket.on 'newUser', (username) ->
+        io.emit 'newUser', username
+
+    socket.on 'disconnect', ->
+        console.log 'A user disconnect'
