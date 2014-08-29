@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-debug = (require 'debug') 'chat'
+debug = require('debug') 'chat'
 app = require '../app'
 
-app.set 'port', process.env.PORT || 3000
+app.set 'port', process.env.PORT or 3000
 
-server = app.listen app.get 'port', ->
+server = app.listen app.get('port'), ->
     debug 'Express server listening on port ' + (do server.address).port
 
 io = (require 'socket.io').listen server
